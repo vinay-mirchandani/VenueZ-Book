@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0b88af84-ea45-40b6-9925-4eef0ecb45b9" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="1nHUDgy49tEqQqpI4wfTxPGBUNj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\images\Revision\fly\template" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\images\Revision\owner\template" />
+      <recent name="D:\images\Revision\fly\static\image" />
+      <recent name="D:\images\Revision\fly\static" />
+      <recent name="D:\images\Revision\fly\template" />
+      <recent name="D:\images\Revision\client\static\client_assets\img" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Revision" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/fly" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fly/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.views" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0b88af84-ea45-40b6-9925-4eef0ecb45b9" name="Default Changelist" comment="" />
+      <created>1611046391961</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611046391961</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="449" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616226237000">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="449" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1616226237000" />
+    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1618495077831">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1618495077831" />
+    <state width="1345" height="238" key="GridCell.Tab.0.bottom" timestamp="1619039709321">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1345" height="238" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1619039709321" />
+    <state width="1345" height="238" key="GridCell.Tab.0.center" timestamp="1619039709321">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1345" height="238" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1619039709321" />
+    <state width="1345" height="238" key="GridCell.Tab.0.left" timestamp="1619039709321">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1345" height="238" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1619039709321" />
+    <state width="1345" height="238" key="GridCell.Tab.0.right" timestamp="1619039709321">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1345" height="238" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1619039709321" />
+    <state width="1345" height="238" key="GridCell.Tab.1.bottom" timestamp="1619039709321">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1345" height="238" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1619039709321" />
+    <state width="1345" height="238" key="GridCell.Tab.1.center" timestamp="1619039709321">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1345" height="238" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1619039709321" />
+    <state width="1345" height="238" key="GridCell.Tab.1.left" timestamp="1619039709321">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1345" height="238" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1619039709321" />
+    <state width="1345" height="238" key="GridCell.Tab.1.right" timestamp="1619039709321">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1345" height="238" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1619039709321" />
+    <state x="184" y="9" key="SettingsEditor" timestamp="1619076271988">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1618289389342" />
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1619076271988" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1616609258364">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1616609258364" />
+    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1616228683580">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.728@0.0.1366.728" timestamp="1616228683580" />
+    <state x="245" y="113" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1619035355259">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="245" y="113" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.768@0.0.1366.768" timestamp="1619035355259" />
+    <state x="320" y="100" width="1062" height="715" maximized="true" key="dock-window-1" timestamp="1618471006008">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="320" y="100" width="1062" height="715" maximized="true" key="dock-window-1/0.0.1366.728@0.0.1366.728" timestamp="1615016068226" />
+    <state x="0" y="0" width="587" height="768" key="find.popup" timestamp="1618387166456">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="0" y="0" width="587" height="768" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1618387166456" />
+    <state x="346" y="52" width="672" height="716" key="search.everywhere.popup" timestamp="1619180355791">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1617532106066" />
+    <state x="346" y="52" width="672" height="716" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1619180355791" />
+  </component>
+</project>

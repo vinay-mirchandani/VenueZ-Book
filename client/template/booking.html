@@ -1,0 +1,154 @@
+{% extends 'clientheader.html '%}
+{% load static %}
+{% block content %}
+
+<div class="page-title-area ptb-100">
+<div class="container">
+<div class="page-title-content">
+<h1>Booking</h1>
+<ul>
+<li class="item"><a href="index.html">Home</a></li>
+<li class="item"><a href="booking.html"><i class='bx bx-chevrons-right'></i>Booking</a></li>
+</ul>
+</div>
+</div>
+<div class="bg-image">
+<img src="{% static 'client_assets/img/page-title-area/booking.jpg' %}" alt="Demo Image">
+</div>
+</div>
+
+
+<section class="booking-section ptb-100 bg-light">
+<div class="container">
+<div class="row">
+<div class="col-lg-8">
+
+
+<div class="content">
+<h3>Personal Information</h3>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<input type="text" name="text" class="form-control" required placeholder="First Name" value="{{user.user_name}}"/>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="form-group">
+<input type="text" name="email" class="form-control" required placeholder="Email" value="{{user.email}}"/>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<input type="tel" name="name" class="form-control" required placeholder="Phone Number" value="{{user.contact}}"/>
+</div>
+</div>
+
+<div class="col-md-12">
+<div class="form-group">
+<input type="text" name="address" class="form-control" required placeholder="Address" value="{{user.area_id.area_name}}"/>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<input type="tel" name="name" class="form-control" required placeholder="India" value="Gujarat"/>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<input type="tel" name="name" class="form-control" required placeholder="India" value="India"/>
+</div>
+</div>
+</div>
+</div>
+
+
+    <form class="booking-form" method="POST" action="/client/confirm_booking/{{package.package_id}}/">
+
+        {% csrf_token %}
+        <div class="col-lg-6 col-sm-6">
+    <div class="select-box">
+<label>Select the date </label>
+        <input type="date"  placeholder="Depart Date" name="req_date" required="required" />
+
+</div>
+</div>
+        <div class="content">
+<h3>Payment Information</h3>
+<div class="payment-tabs">
+<ul class="nav nav-tabs">
+
+<li class="nav-item">
+<div class="checkbox">
+<input type="checkbox" name="payment" value="1" id="agreement">
+<label for="agreement">Via Paypal </label>
+</div>
+</li>
+</ul>
+<div>
+
+<div id="tab-paypal" class="tab-pane">
+<div class="paypal-text">
+<p>To make the payment process secure and complete you will be redirected to Paypal Website .</p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+<div class="row align-items-start mb-30">
+<div class="col-lg-12">
+
+</div>
+</div>
+
+<button type="submit" class="btn-primary">
+Confirm Booking
+</button>
+
+</div>
+</div>
+    </form>
+
+
+</div>
+
+</div>
+<div class="col-lg-4">
+<aside>
+<div class="row align-items-center">
+
+<div class="col-md-12 col-sm-12">
+<div class="item-single mb-30">
+<div class="image">
+<img src="{% static 'client_assets/img/destination7.jpg' %}" alt="Demo Image">
+</div>
+<div class="content">
+<span class="location"><i class='bx bx-map'></i>95 Fleet St, London</span>
+<h3>
+<a href="destination-details.html">{{package.package_name}}</a>
+</h3>
+<div class="review">
+<i class='bx bx-smile'></i>
+<span>9</span>
+<span>Superb</span>
+</div>
+<p>
+Two short getaway breaks in the Greece together and one mini caravan holiday.
+</p>
+<hr>
+<ul class="list">
+<li><i class='bx bx-time'></i>7 Days</li>
+<li><i class='bx bx-group'></i>65+</li>
+<li>$2000</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+</section>
+
+{% endblock %}
+

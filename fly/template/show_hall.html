@@ -1,0 +1,62 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title m-b-0">Venues</h4>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="index.html">
+                <i data-feather="home"></i></a>
+            </li>
+            <li class="breadcrumb-item">Show venues</li>
+          </ul>
+          <div class="section-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>All venues</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-striped table-hover" id="tableExport" style="width:100%;">
+                        <thead>
+                          <tr>
+                            <th>Image</th>
+                            <th>Hall Name</th>
+                            <th>Contact</th>
+                            <th>Address</th>
+                            <th>Description</th>
+                            <th>Category Name</th>
+                            <th>Area</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for h in hall %}
+                          <tr>
+                            <td>
+                               <img src="{% static '/image/' %}{{h.h_path}}" style="height:75px;width:75px;"></td>
+                            <td>{{h.hall_name}}</td>
+                            <td>{{h.contact}}</td>
+                            <td>{{h.address}}</td>
+                            <th>{{h.hall_desc}}</th>
+                            <td>{{h.category_id.category_name}}</td>
+                            <td>{{h.area_id.area_name}}</td>
+                          </tr>
+
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {% endblock %} </div>

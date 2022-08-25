@@ -1,0 +1,121 @@
+{% extends 'clientheader.html '%}
+{% load static %}
+{% block content %}
+
+
+<div class="page-title-area ptb-100">
+<div class="container">
+<div class="page-title-content">
+<h1>My Bookings</h1>
+<ul>
+<li class="item"><a href="index.html">Home</a></li>
+<li class="item"><a href="cart.html"><i class='bx bx-chevrons-right'></i>My Bookings</a></li>
+</ul>
+</div>
+</div>
+<div class="bg-image">
+<img src="{% static 'client_assets/img/page-title-area/cart.jpg' %}" alt="Demo Image">
+</div>
+</div>
+
+
+<section id="cart" class="cart-section pt-100 pb-70">
+<div class="container">
+<div class="row">
+<div class="col-lg-8">
+<div class="cart-table-container">
+<table class="table table-cart">
+ <thead>
+<tr>
+<th class="product-col">Booking Id</th>
+<th class="price-col">Date of Booking</th>
+    <th class="qty-col">Package Name</th>
+    <th class="qty-col">Payment status</th>
+    <th class="qty-col">Order status</th>
+    <th class="qty-col">Requirement Date</th>
+    <th class="qty-col">Make Payment</th>
+
+
+
+
+</tr>
+</thead>
+<tbody>
+
+{% for b in Booking %}
+<tr class="product-row">
+<td class="product-col">
+<figure class="product-image-container">
+<a href="#" class="product-image">
+<img src="{% static 'client_assets/img/cart1.jpg' %}" alt="product">
+</a>
+</figure>
+<h3 class="product-title">
+
+ <td> {{b.booking_date}} </td>
+  <option value="{{b.area_id}}">{{a.area_name}}</option>
+
+ <td> {{b.package_id.package_name}}</td>
+ {% if b.payment_status == 0 %}
+                            <td>Incomplete</td>
+                            {% elif b.payment_status == 1 %}
+                            <td>Complete</td>
+                            {% else %}
+                            {% endif %}
+
+                            {% if b.order_status == 0 %}
+                            <td>Pending</td>
+                            {% elif b.order_status == 1 %}
+                            <td> Accepted </td>
+                            {% elif b.order_status == 2 %}
+                            <td>Rejected</td>
+                            {% else %}
+                            {% endif %}
+
+                            <td>
+                                {{b.req_date}}
+                            </td>
+                            <td>
+                              <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+
+                        <input type="hidden" name="business" value="drashtipateldtak4@gmail.com">
+
+                        <!-- Specify a Buy Now button. -->
+                        <input type="hidden" name="cmd" value="_xclick">
+
+                        <!-- Specify details about the item that buyers will purchase. -->
+                        <input type="hidden" name="item_name" value="{{request.session.cusername}}">
+                        <input type="hidden" name="amount" value="{{b.total}}">
+                          <input type="hidden" name="currency_code" value="INR">
+
+                       <!-- Specify URLs -->
+                       <input type='hidden' name='cancel_return' value='http://127.0.0.1:8000/Customer/cancel'>
+
+                        <input type='hidden' name='return' value='http://127.0.0.1:8000/Customer/success/{{oid}}'>
+
+                        <!-- Display the payment button. -->
+                        <input type="image" name="submit" border="0"
+                        src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
+                        <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+                    </form>
+
+
+                            </td>
+</tr>
+{% endfor %}
+
+<!--<td>-->
+<!--<input   type="text">-->
+</td>
+</tbody>
+<tfoot>
+
+</tfoot>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+{% endblock %}

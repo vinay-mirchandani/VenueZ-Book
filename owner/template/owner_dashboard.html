@@ -1,0 +1,515 @@
+
+{% extends 'owner_header.html' %}
+{% load static %}
+{% block content %}
+
+
+
+      <div class="main-content">
+        <section class="section">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title m-b-0">Dashboard</h4>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="index.html">
+                <i data-feather="home"></i></a>
+            </li>
+            <li class="breadcrumb-item active">Dashboard 2</li>
+          </ul>
+          <div class="row">
+            <div class="col-lg-3 col-sm-6">
+              <div class="card">
+                <div class="card-statistic-5">
+                  <div class="info-box7-block">
+                    <div class="row ">
+                      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <div class="banner-img">
+                          <img src="{% static 'owner_assets/img/banner/1.png' %}" alt="">
+                        </div>
+                      </div>
+                      <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                        <h6 class="m-b-20 text-right">New Customers</h6>
+                        <h4 class="text-right"><span>2,342</span>
+                        </h4>
+                      </div>
+                    </div>
+                    <div id="cardChart1"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="card">
+                <div class="card-statistic-5">
+                  <div class="info-box7-block">
+                    <div class="row ">
+                      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <div class="banner-img">
+                          <img src="{% static 'owner_assets/img/banner/2.png' %}" alt="">
+                        </div>
+                      </div>
+                      <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                        <h6 class="m-b-20 text-right">Orders Received</h6>
+                        <h4 class="text-right"><span>10.3K</span>
+                        </h4>
+                      </div>
+                    </div>
+                    <div id="cardChart2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="card">
+                <div class="card-statistic-5">
+                  <div class="info-box7-block">
+                    <div class="row ">
+                      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <div class="banner-img">
+                          <img src="{% static 'owner_assets/img/banner/3.png' %}" alt="">
+                        </div>
+                      </div>
+                      <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                        <h6 class="m-b-20 text-right">Tickets Resolved</h6>
+                        <h4 class="text-right"><span>754</span>
+                        </h4>
+                      </div>
+                    </div>
+                    <div id="cardChart3"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="card">
+                <div class="card-statistic-5">
+                  <div class="info-box7-block">
+                    <div class="row ">
+                      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <div class="banner-img">
+                          <img src="{% static 'owner_assets/img/banner/4.png' %}" alt="">
+                        </div>
+                      </div>
+                      <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                        <h6 class="m-b-20 text-right">Revenue Today</h6>
+                        <h4 class="text-right"><span>$22,973</span>
+                        </h4>
+                      </div>
+                    </div>
+                    <div id="cardChart4"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-lg-12 col-xl-12 ">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Halls by Category</h4>
+                  <div class="card-header-action">
+
+                  </div>
+                </div>
+                <div class="card-body">
+                  {% include 'base.html' %}
+
+							<script>
+								{% block jquery %}
+
+								var endpoint = '/api/chart/data/'
+								var defaultData = []
+								var labels = [];
+								$.ajax({
+									method: "GET",
+									url: endpoint,
+									success: function(data) {
+										labels = data.labels
+										defaultData = data.default
+										setChart()
+									},
+									error: function(error_data) {
+										console.log("error")
+										console.log(error_data)
+									}
+								})
+
+								function setChart() {
+									var ctx = document.getElementById("myChart");
+									var ctx2 = document.getElementById("myChart2");
+									var myChart = new Chart(ctx2, {
+										type: 'bar',
+										data: {
+											labels: labels,
+											datasets: [{
+												label: 'Total Halls',
+												data: defaultData,
+												backgroundColor: [
+													'rgba(255, 99, 132, 0.2)',
+													'rgba(54, 162, 235, 0.2)',
+													'rgba(255, 206, 86, 0.2)',
+													'rgba(75, 192, 192, 0.2)',
+													'rgba(153, 102, 255, 0.2)',
+													'rgba(255, 159, 64, 0.2)'
+												],
+												borderColor: [
+													'rgba(255,99,132,1)',
+													'rgba(54, 162, 235, 1)',
+													'rgba(255, 206, 86, 1)',
+													'rgba(75, 192, 192, 1)',
+													'rgba(153, 102, 255, 1)',
+													'rgba(255, 159, 64, 1)'
+												],
+												borderWidth: 1
+											}]
+										},
+										options: {
+											scales: {
+												yAxes: [{
+													ticks: {
+														beginAtZero: true
+													}
+												}]
+											}
+										}
+									});
+
+									var myChart = new Chart(ctx, {
+										type: 'polarArea',
+										data: {
+											labels: labels,
+											datasets: [{
+												label: '# of Votes',
+												data: defaultData,
+												backgroundColor: [
+													'rgba(255, 99, 132, 0.2)',
+													'rgba(54, 162, 235, 0.2)',
+													'rgba(255, 206, 86, 0.2)',
+													'rgba(75, 192, 192, 0.2)',
+													'rgba(153, 102, 255, 0.2)',
+													'rgba(255, 159, 64, 0.2)'
+												],
+												borderColor: [
+													'rgba(255,99,132,1)',
+													'rgba(54, 162, 235, 1)',
+													'rgba(255, 206, 86, 1)',
+													'rgba(75, 192, 192, 1)',
+													'rgba(153, 102, 255, 1)',
+													'rgba(255, 159, 64, 1)'
+												],
+												borderWidth: 1
+											}]
+										},
+										options: {
+											scales: {
+												yAxes: [{
+													ticks: {
+														beginAtZero: true
+													}
+												}]
+											}
+										}
+									});
+								}
+								// var ctx = document.getElementById("myChart");
+
+
+
+								{% endblock %}
+							</script>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-12 col-lg-10 col-xl-10">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Booking Details</h4>
+                </div>
+                <div class="card-body">
+                  <div class="tableBody" id="client-details">
+                    <div class="table-responsive">
+                      <table class="table table-hover dashboard-task-infos">
+                        <thead>
+                          <tr>
+                            <th>Booking ID</th>
+                            <th>Booking Date</th>
+                            <th>total</th>
+                            <th>payment_status</th>
+                            <th>order_status</th>
+                            <th>Package_id</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for b in Booking %}
+                          <tr>
+<!--                            <td class="table-img">-->
+<!--                              <img src="{% static 'owner_assets/img/users/user-5.png' %}" alt="">-->
+<!--                            </td>-->
+                            <td>{{b.booking_id}}</td>
+                            <td>{{b.booking_date}}</td>
+                            <td>
+
+                            </td>
+                            <td>
+                              <i class="fas fa-star col-orange"></i>
+                              <i class="fas fa-star col-orange"></i>
+                              <i class="fas fa-star col-orange"></i>
+                              <i class="fas fa-star col-orange"></i>
+                              <i class="far fa-star col-orange"></i>
+                            </td>
+                            {% if b.payment_status == 0 %}
+                            <td>Incomplete</td>
+                            {% elif b.payment_status == 1 %}
+                            <td>Complete</td>
+                            {% else %}
+                            {% endif %}
+
+                            {% if b.order_status == 0 %}
+                            <td>Pending</td>
+                            {% elif b.order_status == 1 %}
+                            <td> Accepted </td>
+                            {% elif b.order_status == 2 %}
+                            <td>Rejected</td>
+                            {% else %}
+                            {% endif %}
+                            <td>{{b.package_id.package_name}}</td>
+                            <td>Payment_type</td>
+                            <td>
+
+                            </td>
+                            <td>
+                              {% if b.order_status == 0 %}
+                              <a href="/owner_order_accepted/{{b.booking_id}}" style="color:#FF0000;">Accepted</a>
+                              <a href="/owner_order_rejected/{{b.booking_id}}">Rejected</a>
+                              {% elif b.order_status == 2 %}
+                              <a class="btn tblDelBtn" data-toggle="tooltip" title="" data-original-title="Delete">
+                                <a href="/del_booking/{{b.booking_id}}">
+
+                                <i class="material-icons">
+                                  delete</i></a>
+                              </a>
+                              {% endif %}
+                            </td>
+
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="settingSidebar">
+          <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
+          </a>
+          <div class="settingSidebar-body ps-container ps-theme-default">
+            <div class=" fade show active">
+              <div class="setting-panel-header">Setting Panel
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Select Layout</h6>
+                <div class="selectgroup layout-color w-50">
+                  <label class="selectgroup-item">
+                    <input type="radio" name="value" value="1" class="selectgroup-input-radio select-layout" checked>
+                    <span class="selectgroup-button">Light</span>
+                  </label>
+                  <label class="selectgroup-item">
+                    <input type="radio" name="value" value="2" class="selectgroup-input-radio select-layout">
+                    <span class="selectgroup-button">Dark</span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Sidebar Color</h6>
+                <div class="selectgroup selectgroup-pills sidebar-color">
+                  <label class="selectgroup-item">
+                    <input type="radio" name="icon-input" value="1" class="selectgroup-input select-sidebar">
+                    <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                      data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
+                  </label>
+                  <label class="selectgroup-item">
+                    <input type="radio" name="icon-input" value="2" class="selectgroup-input select-sidebar" checked>
+                    <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                      data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Color Theme</h6>
+                <div class="theme-setting-options">
+                  <ul class="choose-theme list-unstyled mb-0">
+                    <li title="white" class="active">
+                      <div class="white"></div>
+                    </li>
+                    <li title="cyan">
+                      <div class="cyan"></div>
+                    </li>
+                    <li title="black">
+                      <div class="black"></div>
+                    </li>
+                    <li title="purple">
+                      <div class="purple"></div>
+                    </li>
+                    <li title="orange">
+                      <div class="orange"></div>
+                    </li>
+                    <li title="green">
+                      <div class="green"></div>
+                    </li>
+                    <li title="red">
+                      <div class="red"></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <div class="theme-setting-options">
+                  <label class="m-b-0">
+                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                      id="mini_sidebar_setting">
+                    <span class="custom-switch-indicator"></span>
+                    <span class="control-label p-l-10">Mini Sidebar</span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <div class="theme-setting-options">
+                  <label class="m-b-0">
+                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                      id="sticky_header_setting">
+                    <span class="custom-switch-indicator"></span>
+                    <span class="control-label p-l-10">Sticky Header</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mt-4 mb-4 p-3 align-center rt-sidebar-last-ele">
+                <a href="#" class="btn btn-icon icon-left btn-primary btn-restore-theme">
+                  <i class="fas fa-undo"></i> Restore Default
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+   <div class="settingSidebar">
+          <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
+          </a>
+          <div class="settingSidebar-body ps-container ps-theme-default">
+            <div class=" fade show active">
+              <div class="setting-panel-header">Setting Panel
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Select Layout</h6>
+                <div class="selectgroup layout-color w-50">
+                  <label class="selectgroup-item">
+                    <input type="radio" name="value" value="1" class="selectgroup-input-radio select-layout" checked>
+                    <span class="selectgroup-button">Light</span>
+                  </label>
+                  <label class="selectgroup-item">
+                    <input type="radio" name="value" value="2" class="selectgroup-input-radio select-layout">
+                    <span class="selectgroup-button">Dark</span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Sidebar Color</h6>
+                <div class="selectgroup selectgroup-pills sidebar-color">
+                  <label class="selectgroup-item">
+                    <input type="radio" name="icon-input" value="1" class="selectgroup-input select-sidebar">
+                    <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                      data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
+                  </label>
+                  <label class="selectgroup-item">
+                    <input type="radio" name="icon-input" value="2" class="selectgroup-input select-sidebar" checked>
+                    <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                      data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Color Theme</h6>
+                <div class="theme-setting-options">
+                  <ul class="choose-theme list-unstyled mb-0">
+                    <li title="white" class="active">
+                      <div class="white"></div>
+                    </li>
+                    <li title="cyan">
+                      <div class="cyan"></div>
+                    </li>
+                    <li title="black">
+                      <div class="black"></div>
+                    </li>
+                    <li title="purple">
+                      <div class="purple"></div>
+                    </li>
+                    <li title="orange">
+                      <div class="orange"></div>
+                    </li>
+                    <li title="green">
+                      <div class="green"></div>
+                    </li>
+                    <li title="red">
+                      <div class="red"></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <div class="theme-setting-options">
+                  <label class="m-b-0">
+                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                      id="mini_sidebar_setting">
+                    <span class="custom-switch-indicator"></span>
+                    <span class="control-label p-l-10">Mini Sidebar</span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <div class="theme-setting-options">
+                  <label class="m-b-0">
+                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                      id="sticky_header_setting">
+                    <span class="custom-switch-indicator"></span>
+                    <span class="control-label p-l-10">Sticky Header</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mt-4 mb-4 p-3 align-center rt-sidebar-last-ele">
+                <a href="#" class="btn btn-icon icon-left btn-primary btn-restore-theme">
+                  <i class="fas fa-undo"></i> Restore Default
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <!-- General JS Scripts -->
+  <script src="{% static 'owner_assets/js/app.min.js' %}"></script>
+  <!-- JS Libraies -->
+  <script src="{% static 'owner_assets/bundles/apexcharts/apexcharts.min.js' %}"></script>
+  <script src="{% static 'owner_assets/bundles/amcharts4/core.js' %}"></script>
+  <script src="{% static 'owner_assets/bundles/amcharts4/charts.js' %}"></script>
+  <script src="{% static 'owner_assets/bundles/amcharts4/animated.js' %}"></script>
+  <!-- Page Specific JS File -->
+  <script src="{% static 'owner_assets/js/page/index2.js' %}"></script>
+  <!-- Template JS File -->
+  <script src="{% static 'owner_assets/js/scripts.js' %}"></script>
+  <!-- Custom JS File -->
+  <script src="{% static 'owner_assets/js/custom.js' %}"></script>
+</body>
+
+
+<!-- Mirrored from www.radixtouch.in/templates/admin/gati/source/light/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Jan 2021 19:05:58 GMT -->
+</html>
+{% endblock %}

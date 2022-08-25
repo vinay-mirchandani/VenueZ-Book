@@ -1,0 +1,60 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title m-b-0">Export Tables</h4>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="index.html">
+                <i data-feather="home"></i></a>
+            </li>
+            <li class="breadcrumb-item">Tables</li>
+            <li class="breadcrumb-item">Export Tables</li>
+          </ul>
+          <div class="section-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Export Table</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-striped table-hover" id="tableExport" style="width:100%;">
+                        <thead>
+                          <tr>
+                            <th>Hall ID</th>
+                            <th>Hall Name</th>
+                            <th>Contact</th>
+
+                            <th>Category ID</th>
+
+
+
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for h in Hall %}
+                          <tr>
+                            <td>{{h.hall_id}}</td>
+                            <td>{{h.hall_name}}</td>
+                            <td>{{h.contact}}</td>
+                            <td>{{h.category_id}}</td>
+                          </tr>
+
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {% endblock %} </div>

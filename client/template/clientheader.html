@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<!-- Mirrored from templates.hibootstrap.com/jaunt/default/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Mar 2021 08:14:15 GMT -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Author: HiBootstrap, Category: Tourism, Multipurpose, HTML, SASS, Bootstrap" />
+
+<title>VenueZbook - Beyond your limits </title>
+
+<link rel="stylesheet" href="{% static 'client_assets/css/bootstrap.min.css' %}" />
+
+<link rel="stylesheet" href="{% static 'client_assets/css/fontawesome.css' %}" />
+
+<link rel="stylesheet" href="{% static 'client_assets/css/boxicons.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'client_assets/css/animate.min.css' %}" />
+
+<link rel="stylesheet" href="{% static 'client_assets/css/bootstrap-datepicker.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'client_assets/css/nice-select.css' %}">
+
+<link rel="stylesheet" href="{% static 'client_assets/css/magnific-popup.min.css' %}" />
+
+<link rel="stylesheet" href="{% static 'client_assets/css/owl.carousel.min.css' %}" />
+
+<link rel="stylesheet" href="{% static 'client_assets/css/meanmenu.min.css' %}" />
+
+<link rel="stylesheet" href="{% static 'client_assets/css/style.css' %}" />
+
+<link rel="stylesheet" href="{% static 'client_assets/css/responsive.css' %}" />
+
+<link rel="icon" href="{% static 'client_assets/img/favicon.png' %}" type="image/png" />
+ <script>
+		function load(){
+
+     			$.ajax({
+      				  url:"/client/client_header_menu/",
+        				  success: function(data)
+       				 {
+        				    $("#menu").html(data);
+
+       				 }
+   			 });
+
+		}
+
+</script>
+</head>
+<body onload="load()">
+
+<!--<div id="loading">-->
+<!--<div class="loader"></div>-->
+<!--</div>-->
+
+
+<header class="header-area">
+
+<div class="top-header-area">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-xl-6 col-lg-7">
+<div class="contact-info" >
+<div class="content">
+<i class='bx bx-phone'></i>
+<a href="tel:9033139135">+91-1409610238</a>
+</div>
+<div class="content">
+<i class='bx bx-envelope'></i>
+<a href="">vzb@gmail.com</a>
+</div>
+</div>
+</div>
+<div class="col-xl-6 col-lg-5">
+<div class="side-option">
+ {% if 'cid' in request.session %}
+ <div class="item">
+<a href="/client/reg/" class="btn-secondary">
+My account <i class='bx bx-log-in-circle'></i>
+</a>
+</div>
+<!--<div class="item">-->
+<!--<a href="/client/logout/" class="btn-secondary">-->
+<!--Logout <i class='bx bx-log-in-circle'></i>-->
+<!--</a>-->
+<!--</div>-->
+ {% else %}
+ <div class="item">
+ <a href="/client/log/" class="btn-secondary">
+Login <i class='bx bx-log-in-circle'></i>
+</a>
+</div>
+
+ <div class="item">
+ <a href="/client/reg/" class="btn-secondary">
+Register <i class='bx bx-log-in-circle'></i>
+</a>
+</div>
+ {% endif %}
+ <form method="post" action="/client/venuez/">
+  {% csrf_token %}
+<input type="search" name="hall_name" placeholder="search" id="search">
+<!-- <button type="submit" >-->
+<!-- </button>-->
+<!-- <div class="item">-->
+<!--<a href="#searchBox" id="searchButton" class="btn-search" data-effect="mfp-zoom-in">-->
+<!--<i class='bx bx-search-alt'></i>-->
+<!--</a>-->
+<!--<div id="searchBox" class="search-box mfp-with-anim mfp-hide">-->
+<!--<form class="search-form" method="post">-->
+<!--<input class="search-input" name="hall_name" placeholder="खोज" type="text" id="search">-->
+<!--<button class="btn-search">-->
+<!--</button>-->
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
+
+</div>
+</div>
+</div>
+</div>
+</div>
+ </form>
+
+
+<div class="main-navbar-area">
+<div class="main-responsive-nav">
+<div class="container">
+<div class="main-responsive-menu">
+<div class="logo">
+<a href="index.html">
+<img src="{% static 'client_assets/img/log.png' %}" alt="logo">
+</a>
+</div>
+<div class="cart responsive">
+<a href="cart.html" class="cart-btn"><i class='bx bx-cart'></i>
+<span class="badge">0</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="main-nav">
+<div class="container">
+<nav class="navbar navbar-expand-md navbar-light">
+<a class="navbar-brand" href="index.html">
+ <video width="200" height="100" loop muted autoplay>
+  <source src="{% static 'client_assets/img/logo3.mp4' %}" type="video/mp4">
+<!--  <source src="" type="video/ogg">-->
+  Your browser does not support the video tag.
+</video>
+<!--<img src="{% static 'client_assets/img/log.png' %}" alt="Logo" height="10" width="50">-->
+</a>
+
+<div class="collapse navbar-collapse mean-menu">
+<ul class="navbar-nav ml-auto">
+
+ <li class="nav-item">
+<a href="/client/Home/" class="nav-link active toggle">Home</a>
+ </li>
+
+<li class="nav-item">
+<a href="/client/about-us/" class="nav-link">About</a>
+</li>
+
+
+
+
+<li class="nav-item">
+<a href="/client/venuez/" class="nav-link toggle">Category<i class='bx bxs-chevron-down'></i></a>
+<ul class="dropdown-menu" id="menu" name="menu">
+
+</ul>
+</li>
+
+
+ <li class="nav-item">
+<a href="/client/faq/" class="nav-link">FAQ</a>
+</li>
+
+<li class="nav-item">
+ <a href="/client/My_Bookings/" class="nav-link toggle">My Bookings</a>
+</li>
+
+
+<li class="nav-item">
+<a href="/client/contact/" class="nav-link">Contact-us</a>
+</li>
+</ul>
+
+<div>
+<a href="/client/cart/" class="cart-btn" >
+<span class="badge"></span>
+</a>
+</a>
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</header>
+
+
+{% block content %}
+
+
+
+{% endblock %}
+
+
+
+
+<footer class="footer-area">
+<div class="container">
+<div class="footer-top pt-100 pb-70">
+<div class="row">
+<div class="col-lg-3 col-md-5 col-sm-6 col-12">
+<div class="footer-widget">
+<div class="navbar-brand">
+<a href="index.html">
+<img src="{% static 'client_assets/img/logo2.png' %}" alt="Logo" />
+</a>
+</div>
+<p>You can dream, create, design, and build the most wonderful place.</p>
+<div class="contact-info">
+<div class="content">
+<a href="tel:+0123456987"><i class='bx bx-phone'></i>+0123 456 987</a>
+</div>
+<div class="content">
+<a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#553d3039393a153f34203b217b363a38"><i class='bx bx-envelope'></i><span class="__cf_email__" data-cfemail="462e232a2a29062c273328326825292b">[email&#160;protected]</span></a>
+</div>
+<div class="content">
+<a href="#"><i class='bx bx-map'></i>Mon-Fri: 8 AM – 7 PM</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-5 col-sm-6 col-12">
+<div class="footer-widget">
+<h5>Latest News</h5>
+<ul class="footer-news">
+<li class="content">
+<a href="blog-details.html">Surrounded by the peaceful waters of Lake Victoria.</a>
+<span>October 05, 2020</span>
+<hr>
+</li>
+<li class="content">
+<a href="blog-details.html">Morning came very early today. The alarm went off at 4 am</a>
+<span>October 05, 2020</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-2 col-md-5 col-sm-6 col-12">
+<div class="footer-widget">
+<h5>Quick Links</h5>
+<ul class="footer-links">
+<li>
+<a href="/client/about-us/">About Us</a>
+</li>
+<li>
+<a href="/client/venuez/">Venues</a>
+</li>
+<li>
+<a href="/client/contact/">Contact Us</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-4 col-md-5 col-sm-6 col-12">
+<div class="footer-widget">
+<h5>Instagram Post</h5>
+<ul class="instagram-post">
+<li>
+<img src="{% static 'client_assets/img/instagram1.jpg' %}" alt="Demo Image">
+<i class='bx bxl-instagram'></i>
+</li>
+<li>
+<img src="{% static 'client_assets/img/instagram2.jpg' %}" alt="Demo Image">
+<i class='bx bxl-instagram'></i>
+</li>
+<li>
+<img src="{% static 'client_assets/img/instagram3.jpg' %}" alt="Demo Image">
+<i class='bx bxl-instagram'></i>
+</li>
+<li>
+<img src="{% static 'client_assets/img/instagram4.jpg' %}" alt="Demo Image">
+<i class='bx bxl-instagram'></i>
+</li>
+<li>
+<img src="{% static 'client_assets/img/instagram5.jpg' %}" alt="Demo Image">
+<i class='bx bxl-instagram'></i>
+</li>
+<li>
+<img src="{% static 'client_assets/img/instagram6.jpg' %}" alt="Demo Image">
+<i class='bx bxl-instagram'></i>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<div class="copy-right-area">
+<div class="container">
+<div class="copy-right-content">
+<p>
+ Copyright @2020 VenueZbook. Designed By
+<a href="https://hibootstrap.com/" target="_blank">
+HiBootstrap.com
+</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+
+<script data-cfasync="false" src="{% static 'client_assets../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script><script src="{% static 'client_assets/js/jquery.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/popper.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/bootstrap.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/bootstrap-datepicker.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/jquery.nice-select.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/jquery.magnific-popup.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/jquery.filterizr.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/owl.carousel.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/meanmenu.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/form-validator.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/contact-form-script.js' %}"></script>
+
+<script src="{% static 'client_assets/js/jquery.ajaxchimp.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/script.js' %}"></script>
+
+<!--search-->
+
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script>
+
+   $( function(){
+<!--     alert("test");-->
+     $( "#search" ).autocomplete({
+       source: '{% url 'search1' %}'
+
+     });
+   });
+</script>
+</body>
+
+<!-- Mirrored from templates.hibootstrap.com/jaunt/default/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Mar 2021 08:14:48 GMT -->
+</html>

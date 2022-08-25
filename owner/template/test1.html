@@ -1,0 +1,42 @@
+{% load static %}
+
+ {% for b in Booking %}
+                          <tr>
+
+                            <td>{{b.booking_id}}</td>
+                            <td>{{b.booking_date}}</td>
+                            <td>
+                            </td>
+                            {% if b.payment_status == 0 %}
+                            <td>Incomplete</td>
+                            {% elif b.payment_status == 1 %}
+                            <td>Complete</td>
+                            {% else %}
+                            {% endif %}
+
+                            {% if b.order_status == 0 %}
+                            <td>Pending</td>
+                            {% elif b.order_status == 1 %}
+                            <td> Accepted </td>
+                            {% elif b.order_status == 2 %}
+                            <td>Rejected</td>
+                            {% else %}
+                            {% endif %}
+                            <td>{{b.package_id.package_name}}</td>
+                           
+                            <td>
+                              {% if b.order_status == 0 %}
+                              <a href="/order_accepted/{{b.booking_id}}">Accepted</a>
+                              <a href="/order_rejected/{{b.booking_id}}">Rejected</a>
+                              {% elif b.order_status == 2 %}
+                              <a class="btn tblDelBtn" data-toggle="tooltip" title="" data-original-title="Delete">
+                                <a href="/del_booking/{{b.booking_id}}">
+
+                                <i class="material-icons">
+                                  delete</i></a>
+                              </a>
+                              {% endif %}
+                            </td>
+
+                          </tr>
+                        {% endfor %}

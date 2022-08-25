@@ -1,0 +1,8 @@
+{% load static %}
+
+{% for c in cat %}
+
+<li class="nav-item" value="{{c.category_id}}">
+<a href="/client/venues/{{c.category_id}}/" class="nav-link">{{c.category_name}}</a>
+</li>
+{% endfor %}

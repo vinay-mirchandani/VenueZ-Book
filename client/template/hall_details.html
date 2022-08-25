@@ -1,0 +1,240 @@
+{% extends 'clientheader.html '%}
+{% load static %}
+{% block content %}
+<div class="page-title-area ptb-100">
+<div class="container">
+<div class="page-title-content">
+<h1>Our Destinations</h1>
+<ul>
+<li class="item"><a href="index.html">Home</a></li>
+<li class="item"><a href="destination-details.html"><i class='bx bx-chevrons-right'></i>Destinations Details</a></li>
+</ul>
+</div>
+</div>
+<div class="bg-image">
+<img src="{% static 'client_assets/img/page-title-area/destination-details.jpg' %}" alt="Demo Image">
+</div>
+</div>
+
+
+<section class="destinations-details-section pt-100 pb-70">
+
+
+<div class="container">
+<div class="section-title">
+{% for h in Hall %}
+<h2> {{h.hall_name}}</h2>
+{% endfor %}
+</div>
+
+<div class="row">
+ <div class="col-lg-12 col-md-12">
+<div class="destination-details-desc mb-30">
+<div class="row align-items-center">
+<div class="col-md-16 col-sm-12">
+    {% for g in Gallery %}
+<div class="image mb-20">
+<img src="{% static '/image/' %}{{g.g_path}}"  alt="Demo Image" />
+</div>
+    {% endfor %}
+</div>
+
+</div>
+<div class="content mb-20">
+    {% for h in Hall%}
+<h3>{{h.address}}</h3>
+<p>
+I have personally participated in many of the programs mentioned on this site. One of the programs is Save Our I have personally participated in many of the programs mentioned on this site. One of Save Our I have personally in many of the programs mentioned on this site.I have personally in many of the programs mentioned on this site. One of the programs is Save.
+</p>
+<p>
+<h5> Meri ek tang nakli hai, mai hockey kaa boht bada player tha, ek din Uday bhai ko meri kisi baat par gussa aa gya toh unhone meri hockey stick se meri tang ke 4 tukde kar diye. Par dil ke bahut ache hai turant hospital leke gaye. Meri nakli tang lagwayi or mujhe danda bhi kharid ke diya.</h5>
+</p>
+    {% endfor %}
+</div>
+<div class="row align-items-center">
+<div class="col-md-4 col-sm-12">
+<div class="image mb-30">
+<img src="{% static 'client_assets/img/main14.jpg' %}" alt="Demo Image" />
+</div>
+</div>
+<div class="col-md-8 col-sm-12">
+<p class="mb-30">
+I have personally participated in many of the programs mentioned on this site. One of the programs is Save Our I have personally participated in many of the programs mentioned on this site. One of Save Our I have personally in many of the programs mentioned on this site.
+</p>
+</div>
+</div>
+<p class="mb-20">
+Lorem ipsum dolor sit amet, participated consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus
+vel facilisis consectetur adipiscing.
+</p>
+<div class="info-content">
+<h3 class="sub-title">Some Information</h3>
+<div class="row">
+<div class="col-lg-6 col-md-6">
+<div class="content-list">
+<i class='bx bx-map-alt'></i>
+<h6><span>Country :</span> Oia, Greece</h6>
+</div>
+</div>
+<!--<div class="col-lg-6 col-md-6">-->
+<!--<div class="content-list">-->
+<!--<i class='bx bx-book-reader'></i>-->
+<!--<h6><span>Language Spoken :</span> English</h6>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-lg-6 col-md-6">-->
+<!--<div class="content-list">-->
+<!--<i class='bx bx-notepad'></i>-->
+<!--<h6><span>Visa Requirments :</span> Yes</h6>-->
+<!--</div>-->
+<!--</div>-->
+<div class="col-lg-6 col-md-6">
+<div class="content-list">
+
+<i class='bx bx-area'></i>
+<h6><span>Area (km2) :</span> 1770.80 km2</h6>
+</div>
+</div>
+<div class="col-lg-6 col-md-6">
+<div class="content-list">
+<i class='bx bx-user'></i>
+<h6><span>Per Person :</span> $1200</h6>
+</div>
+</div>
+<div class="col-lg-6 col-md-6">
+<div class="content-list">
+<i class='bx bx-group'></i>
+<h6><span>Guide :</span> Local Guide Available</h6>
+</div>
+</div>
+</div>
+</div>
+<div class="about-btn">
+<a href="/client/booking/{{package.package_id}}/" class="btn-primary">Book Now</a>
+</div>
+
+<hr>
+<div class="comments-area mb-30">
+<h3 class="sub-title">Comments</h3>
+<ol class="comment-list">
+<li class="comment">
+  {% for f in Feedback %}
+
+{% if f.rate ==  1 %}
+<span class="rate"> <i class="fa fa-star"></i></span>
+{% elif f.rate == 2 %}
+<span class="rate"><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+{% elif f.rate == 3 %}
+<span class="rate"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+{% elif f.rate == 4 %}
+<span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+{% else %}
+<span class="rate"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+{% endif %}
+<div class="comment-body">
+<div class="comment-author">
+<img src="{% static 'client_assets/img/blog/author1.jpg' %}" alt="image" />
+</div>
+<div class="comment-content">
+<div class="comment-metadata">
+<h4 class="name">{{f.user_id.user_name}}</h4>
+</div>
+<p>
+{{f.description}}
+</p>
+
+</ul>
+</div>
+</div>
+ {% endfor %}
+<ol class="children">
+<li class="comment">
+<div class="comment-body">
+
+<form>
+
+</form>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="comment-reply">
+<form id="commentForm" class="comment-form" method="POST" action="/client/feedback/">
+{% csrf_token %}
+
+ <h3 class="sub-title">Post comment</h3>
+<div class="row">
+<div class="col-sm-12 col-md-6 col-xs-12">
+<div class="input-group">
+<div class="input-icon"><i class='bx bx-user'></i></div>
+<input type="text" class="form-control" name="name" placeholder="Name" required="required" />
+</div>
+</div>
+
+<div class="col-sm-12 col-xs-12">
+<div class="input-group">
+<div class="input-icon textarea"><i class='bx bx-envelope'></i></div>
+<textarea name="message" class="form-control" placeholder="Write Comment" required="required" rows="6"></textarea>
+</div>
+</div>
+</div>
+    {% for x in Hall %}
+    <input type="hidden" value="{{x.hall_id}}" name="hall_id">
+    {% endfor %}
+    <h4 class="filter-lable-title">Star Rating</h4>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="rate" id="pg_type" value="5">
+                                        <span class="rate"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="rate" id="optionsRadios1" value="4">
+                                        <span class="rate">
+                                          <i class="fa fa-star"></i><i class="fas fa-star "></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="rate" id="" value="3" >
+                                        <span class="rate"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="rate" id="optionsRadios1" value="2">
+                                        <span class="rate"><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="rate" id="optionsRadios1" value="1" >
+                                        <span class="rate"> <i class="fa fa-star"></i></span>
+                                    </label>
+                                </div>
+<input type="submit" class="btn-primary">
+<!-- star rating filter -->
+
+
+    </input>
+
+</form>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-12">
+<aside class="widget-area">
+
+</aside>
+</div>
+</div>
+</div>
+</section>
+<!--firtst sem me itne user liye the?-->
+<!--bol 4-->
+<!--visitor owner client and adminn?yep-->
+{% endblock %}
